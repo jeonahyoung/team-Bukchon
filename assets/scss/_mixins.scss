@@ -1,0 +1,68 @@
+// 재사용할 스타일(mixin)들을 모아두는 파일
+
+// =================================================================
+// 반응형 믹스인 (Responsive Mixins)
+// =================================================================
+
+@mixin mobile {
+    @media (max-width: ($breakpoint-tablet - 1px)) {
+        @content;
+    }
+}
+
+@mixin tablet {
+    @media (min-width: $breakpoint-tablet) and (max-width: ($breakpoint-pc - 1px)) {
+        @content;
+    }
+}
+
+@mixin pc {
+    @media (min-width: $breakpoint-pc) {
+        @content;
+    }
+}
+
+// =================================================================
+// 스타일 적용 믹스인 (Typography Mixin)
+// =================================================================
+// 위에서 만든 $text-styles 맵에서 원하는 스타일을 이름으로 찾아요.
+// 모바일과 PC 스타일을 한 번에 적용해줍니다.
+
+    /**
+     * @mixin text-style($style-name)
+     * @description
+     *   적용할 스타일 이름을 인자로 받아 모바일과 PC 스타일을 한 번에 적용하는 믹스인
+     * @param {String} $style-name
+     *   $text-styles 맵에 정의된 스타일 이름
+     * @example scss - 적용 예
+     *   .hero-title {
+     *     @include text-style('hero-title');
+     *   }
+     */
+
+@mixin text-style($style-name) {
+    // 맵에서 해당 스타일 정보 가져오기 
+    $style: map-get($text-styles, $style-name);
+
+    // 맵에 해당 이름이 없으면 에러 메시지 보여주기
+    @if $style == null {
+        @error "Unknown text style: #{$style-name}.";
+    }
+
+    // --- 1. 모바일 스타일을 기본으로 먼저 적용 (Mobile-First) ---
+    $mobile-style: map-get($style, 'mobile');
+    font-family: map-get($style, 'font-family');
+    font-size: map-get($mobile-style, 'font-size');
+    font-weight: map-get($mobile-style, 'font-weight');
+    line-height: map-get($mobile-style, 'line-height');
+    letter-spacing: map-get($mobile-style, 'letter-spacing');
+
+    // --- 2. PC 사이즈 이상일 때 PC 스타일로 덮어쓰기 ---
+    @media (min-width: $breakpoint-pc) {
+        $pc-style: map-get($style, 'pc');
+        font-size: map-get($pc-style, 'font-size');
+        font-weight: map-get($pc-style, 'font-weight');
+        line-height: map-get($pc-style, 'line-height');
+        letter-spacing: map-get($pc-style, 'letter-spacing');
+    }
+}

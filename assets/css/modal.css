@@ -1,0 +1,87 @@
+/* 모달 스타일 정의 - 블랙앤화이트 테마 */
+.welcome-modal {
+  display: flex;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 1000;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+.welcome-modal.active {
+  opacity: 1;
+  visibility: visible;
+}
+.welcome-modal .modal-content {
+  width: 90%;
+  max-width: 500px;
+  background-color: #ffffff;
+  border-radius: 4px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  transform: translateY(20px);
+  transition: transform 0.3s ease;
+  border: 1px solid #e0e0e0;
+  border-top: 3px solid #000000;
+  border-radius: 24px;
+}
+.active .welcome-modal .modal-content {
+  transform: translateY(0);
+}
+.welcome-modal .modal-header {
+  display: flex;
+  justify-content: flex-end;
+  padding: 15px;
+}
+.welcome-modal .modal-header .close-btn {
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: #000000;
+  transition: color 0.3s ease;
+}
+.welcome-modal .modal-header .close-btn:hover {
+  color: #333333;
+}
+.welcome-modal .modal-body {
+  padding: 0 30px 30px;
+  text-align: center;
+}
+.welcome-modal .modal-body h3 {
+  font-family: "Paperlogy", sans-serif;
+  font-weight: 600;
+  margin-bottom: 15px;
+  font-size: 1.5rem;
+  color: #000000;
+  letter-spacing: 0.5px;
+}
+.welcome-modal .modal-body p {
+  color: #333333;
+  line-height: 1.6;
+  margin-bottom: 0;
+  font-family: "Pretendard", sans-serif;
+  font-size: 1rem;
+}
+
+@media (max-width: 767px) {
+  .welcome-modal .modal-content {
+    width: 95%;
+    max-width: 400px;
+  }
+  .welcome-modal .modal-body {
+    padding: 0 20px 25px;
+  }
+  .welcome-modal .modal-body h3 {
+    font-size: 1.3rem;
+  }
+  .welcome-modal .modal-body p {
+    font-size: 0.95rem;
+  }
+}

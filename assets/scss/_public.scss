@@ -1,0 +1,388 @@
+.header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    width: 100%;
+    height: 80px;
+    background-color: transparent; 
+    display: flex;
+    align-items: center;
+    transition: all 0.3s ease; 
+
+    // 기본 상태(투명할 때)에서 텍스트는 흰색
+    h2{
+        font-family: $font-family-title;
+        font-weight: 600;
+        font-size: 18px;
+        text-decoration: none;
+        color: #fff; 
+        transition: color 0.3s ease; 
+    }
+    
+    // 스크롤 시 적용 스타일
+    &.scrolled {
+        background-color: rgba(255, 255, 255, 0.7);
+        backdrop-filter: blur(10px);
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+        h2 {
+            color: $gray-900;
+        } 
+        .container {
+            // 스크롤 시 햄버거 아이콘 색상 변경
+            .mobile-menu-icon {
+                color: $gray-900;
+            }
+            
+            ul li a {
+                color: $gray-900;
+                
+                // 스크롤 후 호버 시 효과
+                &:hover {
+                    color: $gray-900;
+                    
+                    &::after {
+                        width: 100%; // 밑줄 표시
+                        background-color: $gray-900; // 스크롤 후에는 검은색 밑줄
+                    }
+                }
+            }
+        }
+    }
+    
+    // 스크롤 시 헤더 숨김 스타일
+    &.hide {
+        transform: translateY(-100%); // 위로 올라가면서 사라짐
+        opacity: 0;
+        transition: transform 0.3s ease, opacity 0.3s ease;
+    }
+    .container{
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        
+        // 햄버거 메뉴 아이콘 (모바일용)
+        .mobile-menu-icon {
+            display: none;
+            font-size: 24px;
+            color: #fff;
+            cursor: pointer;
+            z-index: 101;
+            @include mobile {
+                display: block;
+            }
+        }
+        
+        ul{
+            display: flex;
+            justify-content: center;
+            gap: 46px; 
+            
+            @include mobile {
+                display: none; // 모바일에서는 메뉴 숨김
+                position: fixed;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background-color: rgba(0, 0, 0, 0.9);
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                gap: 30px;
+                z-index: 100;
+                
+                &.active {
+                    display: flex;
+                }
+            }
+            
+            li{
+                a{
+                    font-family: $font-family-title;
+                    font-weight: 500;
+                    font-size: 17px;
+                    text-decoration: none;
+                    color: #fff;
+                    transition: all 0.3s ease;
+                    position: relative;
+                    
+                    @include mobile {
+                        font-size: 20px;
+                    }
+                    
+                    &::after {
+                        content: '';
+                        position: absolute;
+                        width: 0;
+                        height: 2px;
+                        bottom: -5px;
+                        left: 0;
+                        background-color: #fff;
+                        transition: width 0.3s ease;
+                    }
+                    
+                    // 호버 시 효과
+                    &:hover {
+                        color: #fff;
+                        
+                        &::after {
+                            width: 100%;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.public_sec01{
+    padding: 160px 0 80px;
+    .sec01_container{
+        max-width: 1440px;
+        margin: 0 auto;
+        .sec01_titleForm{
+        margin-bottom: 4rem;
+        text-align: center;
+            .sec01_title{
+                color: $gray-900;
+                @include text-style('hero-title');
+                font-family: $font-family-title;
+                margin-bottom: 2rem;
+                .sec01_c_title{
+                    color: $primary-color-dark;
+                }
+            }
+            .sec01_subtitle{
+                @include text-style('subpage-desc');
+                color: $gray-500;
+            }
+        }
+        .sec01_img{
+            @include mobile{
+                padding: 0 24px;
+            }
+            img{
+                border-radius: 42px;
+                height: 484px;
+                width: 100%;
+            }
+        }
+    }
+}
+
+.public_sec02_slider{
+    position: relative;
+    .sec02-overlay{
+        display: none;
+        height: 100%;
+        position: absolute;
+        background: rgba(0, 0, 0, 0.6);
+        width: 100%;
+        text-align: center;
+        padding-top: 45%;
+        z-index: 9999;
+        @include mobile{
+            display: block;
+        }
+        i{
+            display: block;
+            color: #fff;
+            font-size: 5rem;
+            animation-duration: 2s;
+            animation-iteration-count: 3;
+            @include mobile{
+                animation: ani-hand 1s 3;
+            }
+        }
+    }
+    .slide{
+        max-width: 1440px;
+        margin: 0 auto;
+        padding: 80px 0;
+        .sec02_titleForm{
+            margin-bottom: 100px;
+            @include mobile{
+                padding: 0 1.5rem;
+                margin-bottom: 35px;
+            }
+            .sec02_title{
+                @include text-style('hero-title');
+                margin-bottom: 1.5rem;
+                color: $primary-color-dark;
+            }
+            .btn_form{
+                display: flex;
+                align-items: center;
+                margin-bottom: 1.5rem;
+                gap: 0 24px;
+                .sec02_btn{
+                    background-color: $primary-color-dark;
+                    padding: 20px 16px;
+                    color: $gray-50;
+                    border-radius: 12px;
+                    text-decoration: none;
+                    @include mobile{
+                        display: none;
+                    }
+                }
+                .operating_hours{
+                    background-color: $gray-100;
+                    padding: 20px 16px;
+                    color: $gray-500;
+                    border-radius: 12px;
+                    @include mobile{
+                        padding: 16px;
+                    }
+                }
+            }
+            .sec02_subtitle{
+                width: 70%;
+                color: $gray-700;
+                @include text-style('image-desc');
+                height: 70px;
+                @include mobile{
+                    width: 100%;
+                    height: 58px;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    white-space: normal;
+                    text-align: left;
+                    word-wrap: break-word;
+                    display: -webkit-box;
+                    -webkit-line-clamp: 3;
+                    -webkit-box-orient: vertical;
+                }
+            }
+        }
+        .sec02_img{
+            .sec02_img01{
+                width: 100%;
+                border-radius: 42px;
+                @include mobile{
+                    border-radius: 0;
+                    margin-bottom: 35px;
+                    height: 40vh;
+                }
+            }
+            .d-none{
+                display: none;
+                @include mobile{
+                    display: block;
+                    background-color: $primary-color-dark;
+                    padding: 20px 16px;
+                    color: $gray-50;
+                    border-radius: 30px;
+                    text-decoration: none;
+                    margin: 0 24px;
+                    text-align: center;
+                }
+            }
+        }
+    }  
+    
+    .swiper-button-prev,
+    .swiper-button-next,
+    .swiper-pagination {
+        position: absolute;
+        z-index: 10;
+    }
+
+    .swiper-pagination{
+        top: 35%;
+        left: 81%;          
+        transform: translateX(-48%);
+        width: 3%;
+        @include mobile{
+            display: none;
+        }
+    }
+
+    .swiper-button-prev {
+        top: 36.2%;         
+        left: 75%;
+        @include mobile{
+            display: none;
+        }
+    }
+    .swiper-button-prev::before{
+        content: "\e120";
+        color: $gray-900;
+        opacity: 0.5;
+        font-family: phosphor;
+        font-size: 30px;
+    }
+    
+    .swiper-button-next {
+        top: 36.2%;         
+        right: 12.5%;
+        @include mobile{
+            display: none;
+        }
+    }
+    .swiper-button-next::before{
+        content: "\e122";
+        color: $gray-900;
+        font-family: phosphor;
+        font-size: 30px;
+    }
+}
+
+.public_sec03{
+    .sec03_form{
+        background: url(../images/public/sec03_img01.png);
+        background-repeat: no-repeat;
+        background-size: cover;
+        padding: 200px 0;
+        height: 50vh;
+        text-align: center;
+        @include mobile{
+            padding: 80px 0;
+        }
+        .sec03_title{
+            font-family: "Paperlogy", sans-serif;
+            font-size: 2rem;
+            font-weight: 700;
+            line-height: 160%;
+            color: $gray-50;
+            margin-bottom: 50px;
+            @include mobile{
+               margin-bottom: 30px;
+               font-size: 1.75rem;
+               line-height: 150%;
+            }
+            .d-none{
+                display:none;
+                @include mobile{
+                    display: block;
+                    line-height: 164%;
+                }
+            }
+        }
+        .sec03_btn{
+            font-family: "Paperlogy", sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: $gray-900;
+            background-color: #fff;
+            text-decoration: none;
+            border-radius: 30px;
+            padding: 13px 35px;
+            cursor: pointer;
+            @include mobile{
+                font-size: 1rem;
+            }
+        }
+    }
+}
+
+@keyframes ani-hand{
+    0%, 100%{
+        transform: translateX(0);
+    }
+    50%{
+        transform: translateX(30px);
+    }
+}

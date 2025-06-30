@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/modal.css">
+    <link
+        rel="stylesheet"
+        type="text/css"
+        href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/regular/style.css"
+    />
+    <link
+        rel="stylesheet"
+        type="text/css"
+        href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/duotone/style.css"
+    />
+    <link
+        rel="stylesheet"
+        type="text/css"
+        href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/bold/style.css"
+    />
+</head>
+<body>
+    <!-- 환영 모달 -->
+    <div class="welcome-modal" id="welcomeModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button class="close-btn" id="closeModal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <h3>안녕하세요! 이 공간은 아직 작업중입니다.</h3>
+                <p>지금 보고 계신 건 가장 최근의 커밋(commit)입니다.<br>
+                    마음껏 둘러보시되, 가끔 덜 마른 페인트를 밟을 수도 있어요 😄</p>
+            </div>
+        </div>
+    </div>
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <h2><a href="index.html">BUKCHON</a></h2>
+            </div>
+            <ul>
+                <li><a href="history.html">History</a></li>
+                <li><a href="public.html">Public Hanok</a></li>
+                <li><a href="programs.html">Programs/Events</a></li>
+                <li><a href="dining.html">K-Cuisine/Cafe</a></li>
+                <li><a href="visit.html">Tour Info</a></li>
+            </ul>
+            <div class="mobile-menu-icon">
+                <i class="ph-bold ph-list"></i>
+            </div>
+        </div>
+    </header>
+    <!-- Hero Section -->
+    
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h2>DISCOVER SEOUL’S
+                    <span>MOST BEAUTIFUL</span>
+                    <br>
+                    TRADITIONAL NEIGHBORHOOD</h2>
+                <p>
+                    Where 100 Years of Korean Heritage Come Alive – Welcome to Bukchon
+                </p>
+            </div>
+            <div class="scroll-icon">
+                <p>
+                    Scroll to explore the guide
+                </p>
+                <i class="ph-duotone ph-caret-double-down"></i>
+            </div>
+        </div>
+    </section>
+    <!-- End Hero Section -->
+    
+    <!-- Public Hanok Section -->
+    <section class="public-hanok p-80">
+        <div class="container">
+            <div class="top-erea">
+                <div class="title">
+                    <h2>Public Hanok</h2>
+                    <p>
+                        Experience conventional events in public Hanok architecture
+                    </p>
+                </div>
+                <div class="btns">
+                    <button>BAEKIN-JAE</button>
+                    <button>HOUSE OF INTEGRITY</button>
+                    <button>HANOK CHUNG</button>
+                    <button>GAERYONG HOUSE</button>
+                </div>
+            </div>
+            <div class="card-item">
+                <div class="card-content">
+                    <div class="card-text">
+                        <h2>BAEKIN-JAE HOUSE</h2>
+                        <p>
+                            Traditional Korean house characterized by natural materials,<br>
+                            curved tiled roofs with heating system
+                        </p>
+                    </div>
+                    <div class="card-footer">
+                        <div class="card-hashtags">
+                            <p class="tag">#Bukchon</p>
+                            <p class="tag">#Hanok</p>
+                            <p class="tag">#K-History</p>
+                        </div>
+                        <a href="public.html" class="card-action-button">
+                            VIEW ALL
+                            <i class="ph-bold ph-arrow-up-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End Public Hanok Section -->
+    
+    <!-- Dining/Cafe Section -->
+    <section class="dining-cafe p-80">
+        <div class="container">
+            <header class="section-header">
+                <div class="section-title">
+                    <h3>Dining & Cafe</h3>
+                    <p>
+                        Traditional Korean cusines providing rich and flavorful
+                    </p>
+                </div>
+                <a href="dining.html" class="view-all-button">
+                    VIEW ALL
+                    <i class="ph-bold ph-arrow-up-right"></i>
+                </a>
+            </header>
+            
+            <div class="dining-grid">
+                <!-- PC용 그리드 아이템 -->
+                <div class="grid-item item--1 pc-only">
+                    <div class="item-content">
+                        <h3>K-BBQ (Pork Belly)</h3>
+                        <p>Fresh pork meat, soft texture/savory flavor</p>
+                    </div>
+                </div>
+                <div class="grid-item item--2 pc-only">
+                    <div class="item-content">
+                        <h3>Bibimbap</h3>
+                    </div>
+                </div>
+                <div class="grid-item item--3 pc-only">
+                    <div class="item-content">
+                        <h3>Jeongol</h3>
+                    </div>
+                </div>
+                <div class="grid-item item--4 pc-only">
+                    <div class="item-content">
+                        <h3>All-In-One</h3>
+                    </div>
+                </div>
+                
+                <!-- 모바일용 리스트 아이템 -->
+                <div class="mobile-dining-list mobile-only">
+                    <div class="mobile-dining-item">
+                        <div class="mobile-dining-image item--1"></div>
+                        <div class="mobile-dining-content">
+                            <h3>K-BBQ (Pork Belly)</h3>
+                            <p>Fresh pork meat, soft texture/savory flavor</p>
+                        </div>
+                    </div>
+                    <div class="mobile-dining-item">
+                        <div class="mobile-dining-image item--2"></div>
+                        <div class="mobile-dining-content">
+                            <h3>Bibimbap</h3>
+                            <p>Fresh pork meat, soft texture/savory flavor</p>
+                        </div>
+                    </div>
+                    <div class="mobile-dining-item">
+                        <div class="mobile-dining-image item--3"></div>
+                        <div class="mobile-dining-content">
+                            <h3>Jeongol</h3>
+                            <p>Fresh pork meat, soft texture/savory flavor</p>
+                        </div>
+                    </div>
+                    <div class="mobile-dining-item">
+                        <div class="mobile-dining-image item--4"></div>
+                        <div class="mobile-dining-content">
+                            <h3>All-In-One</h3>
+                            <p>Fresh pork meat, soft texture/savory flavor</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End Dining/Cafe Section -->
+    
+    <!-- Programs Section -->
+    <section class="programs p-80">
+        <div class="container">
+            <header class="section-header">
+                <div class="section-title">
+                    <h3>Programs</h3>
+                    <p>Hanok programs provide immersive cultural experiences</p>
+                </div>
+                <a href="programs.html" class="view-all-button pc-only">
+                    VIEW ALL
+                    <i class="ph-bold ph-arrow-up-right"></i>
+                </a>
+            </header>
+            
+            <div class="programs-grid">
+                <!-- 프로그램 카드 1 -->
+                <div class="program-card">
+                    <div class="card-image pottery"></div>
+                    <div class="card-overlay">
+                        <h4>Pottery Workshop</h4>
+                    </div>
+                </div>
+                
+                <!-- 프로그램 카드 2 -->
+                <div class="program-card">
+                    <div class="card-image hanbok"></div>
+                    <div class="card-overlay">
+                        <h4>Hanbok Photo</h4>
+                    </div>
+                </div>
+                
+                <!-- 프로그램 카드 3 -->
+                <div class="program-card">
+                    <div class="card-image theatre"></div>
+                    <div class="card-overlay">
+                        <h4>K-Theatre</h4>
+                    </div>
+                </div>
+                
+                <!-- 프로그램 카드 4 -->
+                <div class="program-card">
+                    <div class="card-image soybean"></div>
+                    <div class="card-overlay">
+                        <h4>Soy-Bean Sauce</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End Programs Section -->
+
+    <!-- Visit Bukchon Section -->
+    <section class="visit-bukchon p-80">
+        <div class="container">
+            <!-- 섹션 타이틀 (모바일에서도 보이도록 밖으로 이동) -->
+            <div class="section-title">
+                <h3>How to Visit Bukchon</h3>
+                <p>Bukchon Hanok Village is nearby the Anguk station, which is line #3 of subway system in Seoul</p>
+            </div>
+            
+            <div class="visit-bukchon-content">
+                <!-- 왼쪽: 지도 이미지 -->
+                <div class="map-container">
+                    <div class="map-image"></div>
+                </div>
+                
+                <!-- 오른쪽: 교통 정보 -->
+                <div class="transport-info">
+                    
+                    <!-- 교통 수단 탭 -->
+                    <div class="transport-tabs">
+                        <div class="tab active" data-tab="bus">
+                            <div class="tab-icon bus-icon">
+                                <i class="ph-bold ph-bus"></i>
+                            </div>
+                            <span>BUS</span>
+                        </div>
+                        <div class="tab" data-tab="subway">
+                            <div class="tab-icon subway-icon">
+                                <i class="ph-bold ph-subway"></i>
+                            </div>
+                            <span>SUBWAY</span>
+                        </div>
+                        <div class="tab" data-tab="car">
+                            <div class="tab-icon car-icon">
+                                <i class="ph-bold ph-car"></i>
+                            </div>
+                            <span>CAR</span>
+                        </div>
+                    </div>
+                    
+                    <!-- 교통 정보 내용 -->
+                    <div class="transport-content">
+                        <!-- 버스 정보 -->
+                        <div class="transport-item active" id="bus-info">
+                            <div class="station-info">
+                                <h4>ANGUK STATION EXIT #5 (ID: 01294)</h4>
+                                <p>109, 151, 162, 171, 172, 272, 401, 7025</p>
+                            </div>
+                            <div class="station-info">
+                                <h4>ANGUK STATION EXIT #5 (ID: 01294)</h4>
+                                <p>109, 151, 162, 171, 172, 272, 401, 7025</p>
+                            </div>
+                            <div class="station-info">
+                                <h4>ANGUK STATION EXIT #5 (ID: 01294)</h4>
+                                <p>109, 151, 162, 171, 172, 272, 401, 7025</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- VIEW ALL 링크 -->
+                    <a href="visit.html" class="view-all-link">
+                        <span>VIEW ALL</span>
+                        <i class="ph-bold ph-arrow-up-right"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <!-- 모바일용 VIEW ALL 버튼 -->
+            <div class="mobile-view-all">
+                <a href="visit.html" class="view-all-button">VIEW ALL</a>
+            </div>
+        </div>
+    </section>
+    <!-- End Visit Bukchon Section -->
+    
+    <!-- JavaScript -->
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/modal.js"></script>
+    
+    <!-- Footer Section -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-logo">
+                <h2>BUKCHON</h2>
+            </div>
+            <div class="footer-info">
+                <p class="info-title">Bukchon Hanok Village</p>
+                <p class="info-text">Eunbin Choi, Ahyoung Jeon, Youngyun Kim</p>
+                <p class="info-text">Business Identity: 101-21-070404</p>
+                <p class="copyright">©COPYRIGHT 2025 Bukchon Hanok Village. All rights reserved</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

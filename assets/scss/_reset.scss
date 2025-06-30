@@ -1,0 +1,62 @@
+// 브라우저 기본 스타일을 초기화하는 파일
+
+/* A Modern CSS Reset by Andy Bell */
+
+// 1. box-sizing 규칙을 설정합니다.
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+// 2. 브라우저 기본 마진을 제거합니다.
+body,
+h1, h2, h3, h4, h5, h6,
+p,
+figure,
+blockquote,
+dl,
+dd {
+    margin: 0;
+}
+
+// 3. 목록의 기본 스타일을 제거합니다.
+ul,
+ol {
+    list-style: none;
+    padding: 0;
+}
+
+// 4. body에 기본적인 설정을 적용합니다.
+body {
+    min-height: 100vh;
+    text-rendering: optimizeSpeed;
+    line-height: 1.5;
+}
+
+// 5. a 태그에 기본적인 스타일을 제거합니다.
+a:not([class]) {
+    text-decoration-skip-ink: auto;
+}
+
+// 6. 이미지와 미디어를 다루기 쉽게 만듭니다.
+img,
+picture {
+    max-width: 100%;
+    display: block;
+}
+
+// 7. 폼 요소들이 폰트를 상속받도록 합니다.
+input,
+button,
+textarea,
+select {
+    font: inherit;
+}
+
+// 8. 스크롤 동작을 부드럽게 만듭니다.
+@media (prefers-reduced-motion: no-preference) {
+    html:focus-within {
+        scroll-behavior: smooth;
+    }
+}

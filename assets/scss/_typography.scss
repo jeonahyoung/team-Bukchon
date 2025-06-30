@@ -1,0 +1,126 @@
+
+// =================================================================
+// 1. 기본 변수 정의 (Base Variables)
+// =================================================================
+
+// --- Font Families ---
+// 폰트 이름을 변수로 만들어두면 오타를 방지하고 관리하기 편해요.
+
+$font-family-title: 'Paperlogy', sans-serif;
+$font-family-ui: 'Pretendard', sans-serif;
+
+
+// --- Responsive Breakpoint ---
+// PC 사이즈로 바뀌는 기준점. 768px 이상일 때 PC 스타일이 적용돼요.
+$breakpoint-pc: 768px;
+
+
+
+// --- Typography ---
+// 폰트 시스템은 크게 3가지 파트로 구성됩니다.
+// 1. Font Family: 사용할 폰트의 종류
+// 2. Font Size: 사용할 폰트의 크기
+// 3. Font Weight: 사용할 폰트의 굵기
+
+
+
+// =================================================================
+// 2. 폰트 스타일 맵 정의 (Typography Map)
+// =================================================================
+// 각 스타일의 이름, 폰트 종류, 사이즈, 굵기, 행간, 자간 정보를 모두 담고 있어요.
+
+$text-styles: (
+    // --- Paperlogy (Title Font) ---
+    'hero-title': (
+        'font-family': $font-family-title,
+        'mobile': (
+            'font-size': 1.75rem,   // 28px
+            'font-weight': 800,     // ExtraBold
+            'line-height': 160%,
+            // 'letter-spacing': -0.03em,
+        ),
+        'pc': (
+            'font-size': 2.75rem,   // 44px
+            'font-weight': 700,     // Bold
+            'line-height': 160%,
+            // 'letter-spacing': -0.03em,
+        )
+    ),
+    'main-subtitle': (
+        'font-family': $font-family-title,
+        'mobile': (
+            'font-size': 1.625rem,  // 26px
+            'font-weight': 700,     // Bold
+            'line-height': normal,
+            // 'letter-spacing': -0.03em,
+        ),
+        'pc': (
+            'font-size': 2.5rem,    // 40px
+            'font-weight': 700,     // Bold
+            'line-height': normal,
+            // 'letter-spacing': -0.03em,
+        )
+    ),
+    'image-subtitle': (
+        'font-family': $font-family-title,
+        'mobile': (
+            'font-size': 1.125rem,  // 18px
+            'font-weight': 600,     // SemiBold
+            'line-height': normal,
+            // 'letter-spacing': -0.03em,
+        ),
+        'pc': (
+            'font-size': 1.75rem,   // 28px
+            'font-weight': 600,     // SemiBold
+            'line-height': normal,
+            // 'letter-spacing': -0.03em,
+        )
+    ),
+
+    // --- Pretendard (UI Font) ---
+    'subpage-desc': (
+        'font-family': $font-family-ui,
+        'mobile': (
+            'font-size': 1.25rem,   // 20px
+            'font-weight': 400,     // Regular
+            'line-height': 160%,
+            // 'letter-spacing': -0.03em
+        ),
+        'pc': (
+            'font-size': 1.25rem,   // 20px
+            'font-weight': 400,     // Regular
+            'line-height': 160%,
+            // 'letter-spacing': -0.03em
+        )
+    ),
+    'button-font': (
+        'font-family': $font-family-ui,
+        'mobile': (
+            'font-size': 1.125rem,  // 18px
+            'font-weight': 600,     // SemiBold
+            'line-height': 140%,
+            // 'letter-spacing': -0.05em
+        ),
+        'pc': (
+            'font-size': 1.125rem,  // 18px
+            'font-weight': 600,     // SemiBold
+            'line-height': 140%,
+            // 'letter-spacing': -0.05em
+        )
+    ),
+    'image-desc': (
+        'font-family': $font-family-ui,
+        'mobile': (
+            'font-size': 1rem,      // 16px
+            'font-weight': 500,     // Medium
+            'line-height': normal,
+            // 'letter-spacing': -0.05em
+        ),
+        'pc': (
+            'font-size': 1rem,      // 16px
+            'font-weight': 500,     // Medium
+            'line-height': normal,
+            // 'letter-spacing': -0.05em
+        )
+    )
+);

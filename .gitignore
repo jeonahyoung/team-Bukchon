@@ -1,0 +1,22 @@
+# .gitignore
+
+# VS Code 설정 및 히스토리 폴더
+.vscode/
+.history/
+
+# macOS 시스템 파일
+.DS_Store
+
+# Windows 시스템 파일
+Thumbs.db
+
+# 의존성 폴더 (npm install 등으로 생기는 폴더)
+node_modules/
+
+# 빌드 결과물 폴더
+dist/
+build/
+out/
+
+# 로그 파일
+*.log

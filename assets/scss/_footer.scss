@@ -1,0 +1,63 @@
+// _footer.scss
+// 푸터 스타일 정의
+
+.footer {
+    background-color: #3A4D3A; // 이미지에 보이는 어두운 녹색 배경
+    color: #fff;
+    padding: 40px 0;
+    width: 100%;
+    
+    .container {
+        display: flex;
+        justify-content: space-between;
+        align-items: start;
+        
+        @include mobile {
+            flex-direction: column;
+            gap: 20px;
+            text-align: center;
+        }
+        
+        // 왼쪽 로고 영역
+        .footer-logo {
+            h2 {
+                font-family: $font-family-title;
+                font-weight: 600;
+                font-size: 24px;
+                color: #fff;
+                margin: 0;
+            }
+        }
+        
+        // 오른쪽 정보 영역
+        .footer-info {
+            text-align: right;
+            
+            @include mobile {
+                text-align: center;
+            }
+            
+            .info-title {
+                font-family: $font-family-title;
+                font-weight: 500;
+                font-size: 16px;
+                margin-bottom: 5px;
+            }
+            
+            .info-text {
+                font-family: $font-family-ui;
+                font-size: 14px;
+                color: rgba(255, 255, 255, 0.8);
+                margin-bottom: 5px;
+                line-height: 1.4;
+            }
+            
+            .copyright {
+                font-family: $font-family-ui;
+                font-size: 12px;
+                color: rgba(255, 255, 255, 0.6);
+                margin-top: 10px;
+            }
+        }
+    }
+}
