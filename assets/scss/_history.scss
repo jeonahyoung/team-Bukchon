@@ -1,210 +1,132 @@
-// --- History Section ---
+// _history.scss
 
-// 애니메이션 효과
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
+// --- History Page Intro Section ---
+#history-intro {
+    height: 100vh;
+    // display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background-image: url('../images/history/hero.png');
+    background-size: cover;
+    background-position: center;
+    position: relative;
+
+    // 어두운 오버레이
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.4);
+        z-index: 1;
     }
-    to {
-        opacity: 1;
-        transform: translateY(0);
+
+    .history-content {
+        position: relative;
+        z-index: 2;
+        color: $white;
+        padding: 0 20px;
+
+        .hero-title {
+            h2 {
+                @include text-style('hero-title'); // 타이포그래피 믹스인 적용
+                color: $white;
+                margin-bottom: 2rem;
+                
+                span {
+                    // $secondary-color 또는 원하는 다른 브랜드 컬러 사용 가능
+                    color: #F8A87C; 
+                }
+            }
+            
+            p {
+                @include text-style('subpage-desc'); // 타이포그래피 믹스인 적용
+                color: rgba($white, 0.9);
+                font-weight: 300;
+            }
+        }
     }
 }
 
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
-}
+// --- General History Section Layout ---
+.history-section:not(#history-intro) {
+    // 섹션 내부 요소를 위에서 아래로 쌓기 위한 flex 설정
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; // 위에서부터 정렬
 
-// 히어로 타이틀 스타일
-.hero-title {
-    font-family: $font-family-title;
-    font-size: 3rem;
-    margin-bottom: 1rem;
-    line-height: 1.2;
-    color: #fff;
-    animation: fadeInUp 1.2s ease-out forwards;
-    
-    span {
-        font-weight: 600;
-        color: #F8A87C;
-        display: inline-block;
-        animation: fadeIn 1.5s ease-out 0.5s forwards;
-        opacity: 0; // 애니메이션 시작 전 상태
-    }
-    p{
-        margin-top: 50px;
-        color: #fff !important;
-        opacity: .6 !important;
-    }
-    
-    @include mobile {
-        font-size: 2rem;
-    }
-}
+    // 상단 텍스트 영역 (가로 중앙 정렬은 .container가 담당)
+    .container {
+        // 텍스트 영역이 필요 이상으로 늘어나지 않도록 설정
+        flex-shrink: 0; 
+        padding-top: 5rem; // 상단 여백
+        padding-bottom: 3rem; // 텍스트와 이미지 사이 여백
 
-.history-page {
-    width: 100%;
-    overflow-x: hidden;
+        @include mobile {
+            padding-top: 3rem;
+            padding-bottom: 2rem;
+        }
+    }
     
-    // 히스토리 인트로 섹션 스타일
-    #history-intro {
-        height: 100vh;
-        display: flex;
-        align-items: center;
-        justify-content: center;
+    .history-content {
         text-align: center;
-        background-image: url('../images/history/hero.png');
+
+        p {
+            font-family: $font-family-ui;
+            font-size: 20px; // 디자인에 맞춰 조정 가능
+            color: $primary-color; // variables.scss에 정의된 브랜드 컬러
+            margin-bottom: 0.75rem;
+
+            @include mobile {
+                font-size: 16px;
+            }
+        }
+
+        h2 {
+            font-family: $font-family-title;
+            font-size: 2.5rem; // 디자인에 맞춰 조정 가능
+            font-weight: 600;
+            color: $gray-900;
+            line-height: 1.3;
+
+            @include mobile {
+                font-size: 1.8rem;
+            }
+        }
+    }
+
+    // 하단 이미지 영역
+    .history-image {
+        width: 100%;
+        height: 65vh;
+        flex-grow: 1; 
         background-size: cover;
         background-position: center;
-        position: relative;
-        
-        &::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.4);
-            z-index: 1;
-        }
-        
-        .history-content {
-            position: relative;
-            z-index: 2;
-            color: #fff;
-            padding: 0 20px;
-            
-            // 히어로 타이틀 클래스 적용
-            h2 {
-                @extend .hero-title;
-            }
-            
-            p {
-                font-family: $font-family-ui;
-                font-size: 1.2rem;
-                line-height: 1.6;
-                opacity: 0.9;
-                
-                @include mobile {
-                    font-size: 1rem;
-                }
-            }
-        }
     }
-    
-    // 일반 히스토리 섹션 스타일
-    .history-section {
-        height: 100vh;
-        position: relative;
-        display: flex;
-        flex-direction: column;
-        height: 100vh;
-        position: relative;
-        display: flex;
-        flex-direction: column;
-        
-        // 상단 30% 영역 - 텍스트 콘텐츠
-        .history-content {
-            height: 30%;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            padding: 2rem 5%;
-            text-align: center;
-            
-            p {
-                font-family: $font-family-ui;
-                font-size: 28px;
-                color: #92B097;
-                margin-bottom: 0.5rem;
-            }
-            
-            h2 {
-                font-family: $font-family-title;
-                font-size: 2.5rem;
-                color: $gray-900;
-                line-height: 1.2;
-                
-                @include mobile {
-                    font-size: 1.8rem;
-                }
-            }
-        }
-        
-        // 하단 70% 영역 - 이미지
-        [class^="img"] {
-            height: 70%;
-            width: 100%;
-            background-size: cover;
-            background-position: center;
-        }
-        
-        // 각 섹션별 이미지 배경
-        .img1 {
-            background-image: url('../images/history/1.png');
-        }
-        
-        .img2 {
-            background-image: url('../images/history/2.png');
-        }
-        
-        .img3 {
-            background-image: url('../images/history/3.png');
-        }
-        
-        .img4 {
-            background-image: url('../images/history/4.png');
-        }
-        
-        .img5 {
-            background-image: url('../images/history/5.png');
-        }
-        
-        .img6 {
-            background-image: url('../images/history/6.png');
-        }
-    }
+
+    // 각 섹션별 이미지 배경
+    .img1 { background-image: url('../images/history/hero.png'); }
+    .img2 { background-image: url('../images/history-test/2.png'); }
+    .img3 { background-image: url('../images/history-test/3.png'); }
+    .img4 { background-image: url('../images/history-test/4.png'); }
+    .img5 { background-image: url('../images/history-test/5.png'); }
+    .img6 { background-image: url('../images/history-test/6.png'); }
 }
 
-// 반응형 스타일
-@include tablet {
-    .history-page {
-        .history-section {
-            height: auto;
-            
-            .history-content {
-                height: auto;
-                padding: 3rem 5%;
-            }
-            
-            [class^="img"] {
-                height: 50vh;
-            }
-        }
-    }
-}
 
-@include mobile {
-    .history-page {
-        .history-section {
-            .history-content {
-                padding: 2rem 5%;
-                
-                h2 {
-                    font-size: 1.5rem;
-                }
-            }
-            
-            [class^="img"] {
-                height: 40vh;
-            }
-        }
+// --- FullPage.js Navigation Styles ---
+#fp-nav {
+    ul li a span {
+        background: $gray-500 !important;
+    }
+    ul li a.active span,
+    ul li:hover a.active span {
+        background: $primary-color-dark !important;
+    }
+    ul li:hover a span {
+        background: $primary-color !important;
     }
 }
