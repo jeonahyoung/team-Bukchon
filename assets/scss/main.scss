@@ -127,36 +127,34 @@
             @include mobile {
                 display: none; // 모바일에서 메뉴 숨김
                 position: fixed;
-                top: 0;
+                top: 60px; // 헤더 높이에 맞춰 상단에 고정
                 left: 0;
                 right: 0;
                 bottom: 0;
-                background-color: rgba(0, 0, 0, 0.95);
+                background-color: rgba(255, 255, 255, 1); // 배경색 불투명하게 변경
                 flex-direction: column;
-                justify-content: center;
+                justify-content: flex-start; // 상단에서 시작
                 align-items: center;
-                gap: 30px;
-                z-index: 100;
+                gap: 24px;
+                z-index: 999; // z-index 증가
                 opacity: 0;
                 visibility: hidden;
-                transition: opacity 0.3s ease, visibility 0.3s ease;
+                padding-top: 40px; // 상단 여백 추가
+                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1); // 그림자 추가
+                transition: all 0.3s ease;
+                transform: translateY(-10px); // 애니메이션 추가
                 
-                &.active {
+                &.show-mobile-menu {
                     display: flex;
                     opacity: 1;
                     visibility: visible;
+                    transform: translateY(0); // 애니메이션 추가
+
+                    height: fit-content;
+                    top: 44px;
                 }
                 
-                // 모바일 메뉴 닫기 버튼
-                &::before {
-                    content: '×';
-                    position: absolute;
-                    top: 20px;
-                    right: 20px;
-                    font-size: 32px;
-                    color: #fff;
-                    cursor: pointer;
-                }
+                // 모바일 메뉴 닫기 버튼 제거 (JavaScript에서 처리)
             }
             
             li{
@@ -170,11 +168,28 @@
                     position: relative;
                     
                     @include mobile {
-                        font-size: 22px;
-                        padding: 12px 0;
+                        font-size: 18px;
+                        padding: 14px 0;
                         display: block;
                         width: 100%;
                         text-align: center;
+                        color: #333 !important; // 모바일 메뉴에서 텍스트 색상 변경
+                        font-weight: 600;
+                        letter-spacing: 0.5px;
+                        position: relative;
+                        transition: all 0.2s ease;
+                        
+                        &:hover {
+                            color: $primary-color !important;
+                            transform: translateY(-2px);
+                        }
+                        
+                        // 호버 시 바텀 에펙트 변경
+                        &::after {
+                            background-color: $primary-color;
+                            bottom: 5px;
+                            height: 2px;
+                        }
                     }
                     
                     &::after {

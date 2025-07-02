@@ -1,6 +1,28 @@
 // 스크롤 이벤트를 감지하여 헤더 스타일을 변경하는 스크립트
+// 모바일 메뉴 토글 기능 추가
 
 document.addEventListener('DOMContentLoaded', function() {
+    // 모바일 메뉴 토글 기능
+    const mobileMenuIcon = document.querySelector('.mobile-menu-icon');
+    const headerMenu = document.querySelector('.header ul');
+    
+    // 모바일 메뉴 아이콘 클릭 이벤트
+    if (mobileMenuIcon) {
+        mobileMenuIcon.addEventListener('click', function() {
+            // 메뉴 토글 (보이기/숨기기)
+            headerMenu.classList.toggle('show-mobile-menu');
+            // 아이콘 변경 (리스트 <-> X)
+            const icon = this.querySelector('i');
+            if (icon.classList.contains('ph-list')) {
+                icon.classList.remove('ph-list');
+                icon.classList.add('ph-x');
+            } else {
+                icon.classList.remove('ph-x');
+                icon.classList.add('ph-list');
+            }
+        });
+    }
+    
     // 헤더 스크롤 기능
     const header = document.querySelector('.header');
     let lastScrollTop = 0; // 마지막 스크롤 위치 저장 변수
