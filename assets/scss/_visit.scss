@@ -1,3 +1,145 @@
+.header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    width: 100%;
+    height: 80px;
+    background-color: transparent; 
+    display: flex;
+    align-items: center;
+    transition: all 0.3s ease; 
+
+    // 기본 상태(투명할 때)에서 텍스트는 흰색
+    h2{
+        font-family: $font-family-title;
+        font-weight: 600;
+        font-size: 18px;
+        text-decoration: none;
+        color: #fff; 
+        transition: color 0.3s ease; 
+    }
+    
+    // 스크롤 시 적용 스타일
+    &.scrolled {
+        background-color: rgba(255, 255, 255, 0.7);
+        backdrop-filter: blur(10px);
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+        h2 {
+            color: $gray-900;
+        } 
+        .container {
+        
+            // 스크롤 시 햄버거 아이콘 색상 변경
+            .mobile-menu-icon {
+                color: $gray-900;
+            }
+            
+            ul li a {
+                color: $gray-900;
+                
+                // 스크롤 후 호버 시 효과
+                &:hover {
+                    color: $gray-900;
+                    
+                    &::after {
+                        width: 100%; // 밑줄 표시
+                        background-color: $gray-900; // 스크롤 후에는 검은색 밑줄
+                    }
+                }
+            }
+        }
+    }
+    
+    // 스크롤 시 헤더 숨김 스타일
+    &.hide {
+        transform: translateY(-100%); // 위로 올라가면서 사라짐
+        opacity: 0;
+        transition: transform 0.3s ease, opacity 0.3s ease;
+    }
+    .container{
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        
+        // 햄버거 메뉴 아이콘 (모바일용)
+        .mobile-menu-icon {
+            display: none;
+            font-size: 24px;
+            color: #fff;
+            cursor: pointer;
+            z-index: 101;
+            @include mobile {
+                display: block;
+            }
+        }
+        
+        ul{
+            display: flex;
+            justify-content: center;
+            gap: 46px; 
+            margin: 16px 0;
+            
+            @include mobile {
+                display: none; // 모바일에서는 메뉴 숨김
+                position: fixed;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background-color: rgba(0, 0, 0, 0.9);
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                gap: 30px;
+                z-index: 100;
+                
+                &.active {
+                    display: flex;
+                }
+            }
+            
+            li{
+                a{
+                    font-family: $font-family-title;
+                    font-weight: 500;
+                    font-size: 17px;
+                    text-decoration: none;
+                    color: #fff;
+                    transition: all 0.3s ease;
+                    position: relative;
+                    
+                    @include mobile {
+                        font-size: 20px;
+                    }
+                    
+                    &::after {
+                        content: '';
+                        position: absolute;
+                        width: 0;
+                        height: 2px;
+                        bottom: -5px;
+                        left: 0;
+                        background-color: #fff;
+                        transition: width 0.3s ease;
+                    }
+                    
+                    // 호버 시 효과
+                    &:hover {
+                        color: #fff;
+                        
+                        &::after {
+                            width: 100%;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
 #visit-kv {
     .container-kv {
         width: 100%;
